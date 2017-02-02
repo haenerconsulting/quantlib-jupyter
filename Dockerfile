@@ -13,4 +13,4 @@ RUN pip install --upgrade pip && pip install jupyter && pip install -r /requirem
 
 ADD notebooks /notebooks
 
-CMD jupyter-notebook --no-browser --ip=0.0.0.0 --port=8888 --notebook-dir=/notebooks
+CMD jupyter-notebook --no-browser --ip=0.0.0.0 --port=8888 --notebook-dir=/notebooks --NotebookApp.token=""
