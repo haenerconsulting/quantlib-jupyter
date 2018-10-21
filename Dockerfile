@@ -1,4 +1,4 @@
-ARG tag=lates
+ARG tag=latest
 FROM lballabio/quantlib-python3:${tag}
 MAINTAINER Patrick Haener <contact@haenerconsulting.com>
 ARG VERSION
