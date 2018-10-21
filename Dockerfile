@@ -19,7 +19,7 @@ RUN apt-get update \
 
 COPY requirements.txt /requirements.txt
 
-RUN pip3 install jupyter && pip3 install -r /requirements.txt && jupyter-nbextension install rise --py --sys-prefix
+RUN pip3 install --no-cache-dir -r /requirements.txt && jupyter-nbextension install rise --py --sys-prefix
 
 ADD templates /notebooks/templates
 RUN mkdir /notebooks/user
