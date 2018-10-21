@@ -1,6 +1,6 @@
 # Quantlib-Jupyter
 
-Jupyter server for the Python version of Quantlib
+Jupyter server for the Python version of QuantLib
 
 ## Running the Jupyter Server
 
