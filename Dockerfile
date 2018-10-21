@@ -1,4 +1,5 @@
-FROM lballabio/quantlib-python3
+ARG tag=lates
+FROM lballabio/quantlib-python3:${tag}
 MAINTAINER Patrick Haener <contact@haenerconsulting.com>
 ARG VERSION
 ARG BUILD_DATE
@@ -11,15 +12,19 @@ LABEL org.label-schema.vcs-url=https://github.com/haenerconsulting/quantlib-jupy
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL git_commit=$GIT_COMMIT
 
-
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y wget python3-distutils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+RUN wget https://bootstrap.pypa.io/get-pip.py \
+ && python3 get-pip.py \
+ && rm get-pip.py
+
 COPY requirements.txt /requirements.txt
 
-RUN pip3 install --no-cache-dir -r /requirements.txt && jupyter-nbextension install rise --py --sys-prefix
+RUN pip install --no-cache-dir -r /requirements.txt && rm /requirements.txt
+RUN jupyter-nbextension install rise --py --sys-prefix
 
 ADD templates /notebooks/templates
 RUN mkdir /notebooks/user
