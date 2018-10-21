@@ -7,7 +7,7 @@ ARG GIT_COMMIT=unspecified
 LABEL Description="A Jupyter notebook server with the QuantLib Python module available"
 LABEL org.label-schema.version=$VERSION
 LABEL org.label-schema.vcs-ref=$VCS_REF
-LABEL org.label-schema.vcs-url=https://github.com/haenerconsulting/gitserver
+LABEL org.label-schema.vcs-url=https://github.com/haenerconsulting/quantlib-jupyter
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL git_commit=$GIT_COMMIT
 
